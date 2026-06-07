@@ -2,6 +2,7 @@ import { useState } from "react";
 import TeamPage from "./components/TeamPage";
 import GamesPage from "./components/GamesPage";
 import WinProbabilityPage from "./components/WinProbabilityPage";
+import FourthDownPage from "./components/FourthDownPage";
 import "./App.css";
 
 function App() {
@@ -27,6 +28,11 @@ function App() {
             onClick={() => setActivePage("wp")}>
             Win Probability
           </button>
+          <button
+            className={activePage === "fourthdown" ? "active" : ""}
+            onClick={() => setActivePage("fourthdown")}>
+            4th Down
+          </button>
         </div>
       </nav>
 
@@ -34,6 +40,7 @@ function App() {
         {activePage === "teams" && <TeamPage />}
         {activePage === "games" && <GamesPage />}
         {activePage === "wp" && <WinProbabilityPage />}
+        {activePage === "fourthdown" && <FourthDownPage />}
       </main>
     </div>
   );
