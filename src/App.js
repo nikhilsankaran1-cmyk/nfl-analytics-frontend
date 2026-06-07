@@ -1,23 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import TeamPage from "./components/TeamPage";
+import GamesPage from "./components/GamesPage";
+import WinProbabilityPage from "./components/WinProbabilityPage";
+import "./App.css";
 
 function App() {
+  const [activePage, setActivePage] = useState("teams");
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <nav className="navbar">
+        <span className="nav-logo">🏈 NFL Analytics</span>
+        <div className="nav-links">
+          <button
+            className={activePage === "teams" ? "active" : ""}
+            onClick={() => setActivePage("teams")}>
+            Teams
+          </button>
+          <button
+            className={activePage === "games" ? "active" : ""}
+            onClick={() => setActivePage("games")}>
+            Games
+          </button>
+          <button
+            className={activePage === "wp" ? "active" : ""}
+            onClick={() => setActivePage("wp")}>
+            Win Probability
+          </button>
+        </div>
+      </nav>
+
+      <main className="content">
+        {activePage === "teams" && <TeamPage />}
+        {activePage === "games" && <GamesPage />}
+        {activePage === "wp" && <WinProbabilityPage />}
+      </main>
     </div>
   );
 }
