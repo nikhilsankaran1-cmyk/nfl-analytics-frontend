@@ -157,8 +157,7 @@ export default function FourthDownPage() {
               {result.recommendation === "punt" && "✓ Punt"}
             </div>
             <p style={{ color: "#888", fontSize: "14px" }}>
-              Based on {(result.conversion_rate * 100).toFixed(1)}% historical conversion rate on 4th & {form.ydstogo}
-              {result.fg_applicable && ` · ${result.kick_distance} yard field goal (${(result.fg_rate * 100).toFixed(0)}% make rate)`}
+              {result.fg_applicable && ` ${result.kick_distance} yard field goal (${(result.fg_rate * 100).toFixed(0)}% make rate)`}
             </p>
           </div>
 

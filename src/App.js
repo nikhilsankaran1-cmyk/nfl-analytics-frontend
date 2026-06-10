@@ -3,6 +3,7 @@ import TeamPage from "./components/TeamPage";
 import GamesPage from "./components/GamesPage";
 import WinProbabilityPage from "./components/WinProbabilityPage";
 import FourthDownPage from "./components/FourthDownPage";
+import SimulatorPage from "./components/SimulatorPage";
 import "./App.css";
 
 function App() {
@@ -33,6 +34,11 @@ function App() {
             onClick={() => setActivePage("fourthdown")}>
             4th Down
           </button>
+          <button
+            className={activePage === "simulator" ? "active" : ""}
+            onClick={() => setActivePage("simulator")}>
+            2026 Simulator
+          </button>
         </div>
       </nav>
 
@@ -41,6 +47,7 @@ function App() {
         {activePage === "games" && <GamesPage />}
         {activePage === "wp" && <WinProbabilityPage />}
         {activePage === "fourthdown" && <FourthDownPage />}
+        {activePage === "simulator" && <SimulatorPage />}
       </main>
     </div>
   );
